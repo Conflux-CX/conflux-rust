@@ -18,7 +18,6 @@ use crate::rpc::{
 };
 use cfx_types::H256;
 use cfxcore::{
-    alliance_tree_graph::blockgen::TGBlockGenerator,
     block_parameters::MAX_BLOCK_SIZE_IN_BYTES, state_exposer::STATE_EXPOSER,
     PeerInfo, SharedConsensusGraph, SharedSynchronizationService,
     SharedTransactionPool,

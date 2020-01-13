@@ -3,7 +3,6 @@
 // See http://www.gnu.org/licenses/
 
 use crate::{
-    alliance_tree_graph::hsb_sync_protocol::message::msgid as hsb_msgid,
     sync::message::msgid,
 };
 use cfx_types::H256;

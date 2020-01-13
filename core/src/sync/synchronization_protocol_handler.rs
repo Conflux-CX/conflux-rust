@@ -7,7 +7,6 @@ use super::{
     ErrorKind, SharedSynchronizationGraph, SynchronizationState,
 };
 use crate::{
-    alliance_tree_graph::consensus::TreeGraphConsensus,
     block_data_manager::BlockStatus,
     light_protocol::Provider as LightProvider,
     message::{decode_msg, Message, MsgId},

@@ -56,7 +56,6 @@ pub mod genesis;
 mod parameters;
 #[macro_use]
 pub mod message;
-pub mod alliance_tree_graph;
 pub mod channel;
 pub mod client;
 pub mod light_protocol;
