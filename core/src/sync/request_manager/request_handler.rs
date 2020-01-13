@@ -3,7 +3,6 @@
 // See http://www.gnu.org/licenses/
 
 use crate::{
-    alliance_tree_graph::hsb_sync_protocol::sync_protocol::RpcResponse,
     message::Message,
     sync::{
         message::{DynamicCapability, KeyContainer},

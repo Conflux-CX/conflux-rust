@@ -4,11 +4,7 @@
 
 use crate::rpc::impls::cfx::RpcImplConfiguration;
 use cfx_types::H256;
-use cfxcore::{
-    alliance_tree_graph::consensus::{
-        consensus_inner::ConsensusInnerConfig as TreeGraphConsensusInnerConfig,
-        ConsensusConfig as TreeGraphConsensusConfig,
-    },
+use cfxcore::{,
     block_data_manager::{DataManagerConfiguration, DbType},
     consensus::{ConsensusConfig, ConsensusInnerConfig},
     consensus_parameters::*,

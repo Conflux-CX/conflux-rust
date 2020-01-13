@@ -7,7 +7,6 @@ use super::{
     synchronization_state::SynchronizationState,
 };
 use crate::{
-    alliance_tree_graph::hsb_sync_protocol::sync_protocol::RpcResponse,
     parameters::sync::REQUEST_START_WAITING_TIME,
     sync::{
         message::{
