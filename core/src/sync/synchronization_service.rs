@@ -6,10 +6,6 @@ use super::{
     Error, SharedSynchronizationGraph, SynchronizationProtocolHandler,
 };
 use crate::{
-    alliance_tree_graph::consensus::{
-        NewCandidatePivotCallbackType, NextSelectedPivotCallbackType,
-        SetPivotChainCallbackType, TreeGraphConsensus,
-    },
     light_protocol::Provider as LightProvider,
     parameters::sync::SYNCHRONIZATION_PROTOCOL_VERSION,
     sync::{
