@@ -8,7 +8,7 @@ use crate::command::rpc::RpcCommand;
 use clap::{load_yaml, App, ArgMatches};
 use client::{
     archive::ArchiveClient, configuration::Configuration, full::FullClient,
-    light::LightClient, tg_archive::TgArchiveClient,
+    light::LightClient,
 };
 use command::account::{AccountCmd, ImportAccounts, ListAccounts, NewAccount};
 use log::{info, LevelFilter};

@@ -8,6 +8,7 @@
 
 extern crate cfx_bytes as bytes;
 extern crate core;
+extern crate elastic_array;
 extern crate ethkey as keylib;
 extern crate io;
 extern crate keccak_hash as hash;
@@ -29,7 +30,6 @@ extern crate lazy_static;
 extern crate bit_set;
 extern crate bn;
 extern crate byteorder;
-extern crate libra_canonical_serialization as lcs;
 extern crate memory_cache;
 extern crate num;
 extern crate parity_crypto;
@@ -38,7 +38,6 @@ extern crate prometheus;
 extern crate futures;
 #[cfg(test)]
 extern crate rustc_hex;
-extern crate schemadb;
 extern crate serde;
 extern crate serde_derive;
 extern crate unexpected;
