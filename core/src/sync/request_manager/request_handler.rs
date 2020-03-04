@@ -11,7 +11,6 @@ use crate::{
         Error, ErrorKind,
     },
 };
-use futures::channel::oneshot;
 use network::{NetworkContext, PeerId, UpdateNodeOperation};
 use parking_lot::Mutex;
 use std::{
@@ -413,14 +412,6 @@ pub trait Request: Send + Debug + AsAny + Message {
 
     /// Notify the handler when the request gets timeout.
     fn notify_timeout(&mut self) {}
-
-    /// This is for RPC request. Set the notification handle for the request.
-    fn set_response_notification(
-        &mut self,
-        _res_tx: oneshot::Sender<Result<Box<dyn RpcResponse>, Error>>,
-    )
-    {
-    }
 }
 
 #[derive(Debug)]
