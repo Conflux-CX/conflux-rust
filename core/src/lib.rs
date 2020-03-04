@@ -30,12 +30,11 @@ extern crate lazy_static;
 extern crate bit_set;
 extern crate bn;
 extern crate byteorder;
+extern crate futures;
 extern crate memory_cache;
 extern crate num;
 extern crate parity_crypto;
-#[macro_use]
 extern crate prometheus;
-extern crate futures;
 #[cfg(test)]
 extern crate rustc_hex;
 extern crate serde;

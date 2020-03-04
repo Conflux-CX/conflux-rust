@@ -26,12 +26,10 @@ use crate::{
 };
 use cfx_types::H256;
 use io::TimerToken;
-use libra_types::crypto_proxies::ValidatorVerifier;
 use metrics::{register_meter_with_group, Meter, MeterTimer};
 use network::{
-    node_table::NodeId, throttling::THROTTLING_SERVICE, Error as NetworkError,
-    HandlerWorkType, NetworkContext, NetworkProtocolHandler, PeerId,
-    UpdateNodeOperation,
+    throttling::THROTTLING_SERVICE, Error as NetworkError, HandlerWorkType,
+    NetworkContext, NetworkProtocolHandler, PeerId, UpdateNodeOperation,
 };
 use parking_lot::{Mutex, RwLock};
 use primitives::{Block, BlockHeader, EpochId, SignedTransaction};
@@ -336,13 +334,6 @@ impl SynchronizationProtocolHandler {
     }
 
     pub fn is_consortium(&self) -> bool { self.protocol_config.is_consortium }
-
-    pub fn update_validator_info(
-        &self, validators: &ValidatorVerifier,
-    ) -> HashSet<NodeId> {
-        assert!(self.is_consortium());
-        self.syn.update_validator_info(validators)
-    }
 
     fn get_to_propagate_trans(&self) -> HashMap<H256, Arc<SignedTransaction>> {
         self.graph.get_to_propagate_trans()
@@ -1444,19 +1435,6 @@ impl SynchronizationProtocolHandler {
         self.graph.remove_expire_blocks(timeout);
         self.relay_blocks(io, need_to_relay)
     }
-
-    fn remove_expired_bft_execution(&self) {
-        let sync_graph = self.get_synchronization_graph();
-        if !sync_graph.is_consortium() {
-            return;
-        }
-        let tg_consensus = sync_graph
-            .consensus
-            .as_any()
-            .downcast_ref::<TreeGraphConsensus>()
-            .expect("downcast to TreeGraphConsensus should success");
-        tg_consensus.remove_expired_bft_execution();
-    }
 }
 
 impl NetworkProtocolHandler for SynchronizationProtocolHandler {
@@ -1624,7 +1602,6 @@ impl NetworkProtocolHandler for SynchronizationProtocolHandler {
             }
             EXPIRE_BFT_EXECUTION_TIMER => {
                 debug!("timeout: remove_expired_bft_execution");
-                self.remove_expired_bft_execution();
             }
             _ => warn!("Unknown timer {} triggered.", timer),
         }

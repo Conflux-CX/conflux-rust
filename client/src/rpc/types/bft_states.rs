@@ -1,3 +1,4 @@
+#![allow(unused)]
 use cfxcore::state_exposer::BFTStates as PrimitiveBFTStates;
 
 #[derive(Debug, Default, Serialize, Deserialize)]
